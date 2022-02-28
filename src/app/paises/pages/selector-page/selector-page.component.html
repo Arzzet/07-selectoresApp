@@ -15,16 +15,38 @@
                 </select>
         </div>
     </div>
+    
     <!-- Pais -->
-    <div class="row mb-3">
+    <div class="row mb-3" *ngIf="paises.length !== 0">
         <div class="col">
-            <label class="form-label">Continente:</label>
+            <label class="form-label">Pais:</label>
                 <select class="form-control"
                         formControlName="pais">
                     <option value=""> -- Seleccione pais -- </option>
                     <option *ngFor="let pais of paises"
                             [value]="pais.cca3"> {{pais.name.common}} </option>
                 </select>
+        </div>
+    </div>
+
+     <!-- Fronteras -->
+     <div class="row mb-3" *ngIf="fronteras.length !== 0">
+        <div class="col">
+            <label class="form-label">Fronteras:</label>
+                <select class="form-control"
+                        formControlName="frontera">
+                    <option value=""> -- Seleccione el pais fronterizo -- </option>
+                    <option *ngFor="let frontera of fronteras"
+                            [value]="frontera.cca3"> {{frontera.name.common}} </option>
+                </select>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="cargando">
+        <div class="col">
+            <div class="alert alert-primary">
+                cargando...
+            </div>
         </div>
     </div>
 
